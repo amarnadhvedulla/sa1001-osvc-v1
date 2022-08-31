@@ -1,0 +1,30 @@
+#%RAML 1.0
+version: V1
+baseUri: /api/sys/osvc/v1
+title: Osvc System API to mange resources in Oracle Service Cloud
+description: Osvc System API managing Organizations
+# Created By Amar on 05-07-2022 JIRA#CIGNIS722-1 Added POST /oraganizations
+# modified By Amar on 22-07-2022 JIRA#CIGNIS722-3 Added POST /incidents
+protocols:
+  [HTTPS,HTTP]
+mediaType: 
+- application/json
+
+types:
+  postOrganizationsRequest: !include libraries/DataTypes/requests/postOrganization.raml
+  postOrganizationsResponse: !include libraries/DataTypes/responses/postOrganizations.raml
+  postIncidentsRequest: !include libraries/DataTypes/requests/postIncidents.raml
+  postIncidentsResponse: !include libraries/DataTypes/responses/postIncidents.raml
+
+traits:
+  clientCredentials: !include libraries/traits/clientCredentials.raml
+
+resourceTypes:
+  organizationResourceType: !include /libraries/resourceTypes/organization.raml
+  incidentsResourceType: !include /libraries/resourceTypes/incidents.raml
+
+/organizations:
+  type: organizationResourceType
+
+/incidents:
+  type: incidentsResourceType

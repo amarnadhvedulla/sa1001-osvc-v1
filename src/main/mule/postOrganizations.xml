@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+
+	<sub-flow name="postOrganizationsSubFlow" doc:id="08746114-07b7-4492-9022-6b93a9c9fe9b" doc:description="This Flow is used to create Organization record by calling osvc endpoint by using basic auth">
+		<logger level="INFO" doc:name="Info: Flow Start Logger" doc:id="ecc4add4-ef4e-4e61-bcc2-85449ebdfbdd" message="postOrganizationsSubFlow Started #[payload]"/>
+		<http:request method="POST" doc:name="OSVC Ext Request for Organization Creation" doc:id="966f9015-4fff-472d-8c04-c43392c78f42" config-ref="HTTP_Request_configuration" path="${osvc.http.organizations.path}" />
+		<logger level="INFO" doc:name="Info: Flow End Logger" doc:id="84d507e6-4d36-4d99-beb9-538f09c8578d" message="postOrganizationsSubFlow Ended"/>
+	</sub-flow>
+</mule>

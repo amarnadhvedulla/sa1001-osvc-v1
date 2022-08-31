@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<mule xmlns:http="http://www.mulesoft.org/schema/mule/http" xmlns="http://www.mulesoft.org/schema/mule/core"
+	xmlns:doc="http://www.mulesoft.org/schema/mule/documentation"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.mulesoft.org/schema/mule/core http://www.mulesoft.org/schema/mule/core/current/mule.xsd
+http://www.mulesoft.org/schema/mule/http http://www.mulesoft.org/schema/mule/http/current/mule-http.xsd">
+	<sub-flow name="postIncidentsSubFlow" doc:id="46727804-d1cd-494a-a7af-e82c2391539b" doc:description="Sub flow to call OSVC incidents rest endpoint">
+		<logger level="INFO" doc:name="Info: Flow start Logger" doc:id="4fc00072-3b2d-4e46-8561-d02549931535" message="postIncidentsSubFlow Started"/>
+		<http:request method="POST" doc:name="OSVC Incidents Request" doc:id="a39ee629-98a4-46fc-943b-bebd52c026a2" config-ref="HTTP_Request_configuration" path="${osvc.http.incidents.path}"/>
+		<logger level="INFO" doc:name="Info: FLow End Logger" doc:id="15c0bd74-31d4-4889-925e-5ccb76e34eb9" message="postIncidentsSubFlow Ended"/>
+	</sub-flow>
+</mule>
